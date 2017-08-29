@@ -12,6 +12,12 @@ body {
     transition: all 2s;
 }
 
+* {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
 h1, h2, h3, h4 {
 	font-family: 'Georgia', Times, Times New Roman, serif;
 	color: #4aaaa5;
@@ -47,7 +53,7 @@ header {
 	background-color: #fff;
 	height: 60px;
 	line-height: 60px;
-	padding: 0 50px;
+	padding: 0;
 }
 
 header::after {
@@ -57,13 +63,13 @@ header::after {
 }
 
 .header-wrapper {
-	width: 960px;
+	width: 100%;
 	margin: 0 auto;
 	position: relative;
 }
 
 .site-logo {
-	float: left;
+	float: none;
 	color: #fff;
 	height: 60px;
     text-align: center;
@@ -82,25 +88,15 @@ header::after {
 	display: block;
 	width: 100%;
 	text-align: center;
-}
-.mobile-nav li  {
-	display: block;
-	list-style: none;
-	padding: 10px 0;
+	height: 40px;
 }
 
 
-@media(min-width: 768px) {
-	.main-nav {
-		display: block;
-	}
-	.mobile-nav {
-		display: none;
-	}
+.mobile-nav li a {
+	line-height: 40px;
 }
 
-
-.main-nav li {
+.main-nav li, .mobile-nav li {
 	display: inline;
 	list-style: none;
 }
@@ -116,16 +112,17 @@ header::after {
 	color: #fff;
 }
 
-.main-nav li + li:before {
+.main-nav li + li:before,
+.mobile-nav li + li:before {
     content: " | ";
     padding: 0 10px;
 }
 
 .main-container {
 	flex: 1 0 auto;
-	width: 960px;
-	padding: 0 50px;
-	margin: 25px auto;
+	width: 96%;
+	padding: 0;
+	margin: 25px 2vw;
 }
 .main-container::after {
 	content: "";
@@ -134,30 +131,38 @@ header::after {
 }
 
 .left-column {
-	width: 598px;
+	width: 100%;
 	padding: 25px;
-	float: left;
+	float: none;
 	border: 1px solid #dddddd;
 }
 
 .profile-picture img {
-	width: 200px;
+	width: 100%;
 	height: auto;
-	float: left;
+	float: none;
 }
 
 .right-column {
-	float: right;
-	width: 218px;
-	text-align: center;
+	float: none;
+	width: 100%;
+	margin-top: 25px;
+	text-align: left;
 	padding: 25px;
 	border: 1px solid #dddddd;
 }
 .left-column hr {
 	border-top: 2px solid #dddddd;
 }
-.right-column hr {
-	
+.left-column::after {
+	content: "";
+	display: block;
+	clear: both;
+}
+.right-column::after {
+	content: "";
+	display: block;
+	clear: both;	
 }
 
 .right-column a {
@@ -252,19 +257,19 @@ textarea {
 /* Portfolio Page */
 .port-block {
 	position: relative;
-	width: 48%;
+	width: 100%;
+	height: 200px;
 	margin: 25px 0 20px 0;
-	height: 170px;
 	background-repeat: no-repeat;
 	background-size: cover;
 }
 
 .port-block.odd {
-	float:left;
+	float: none;
 }
 
 .port-block.even {
-	float: right;
+	float: none;
 }
 
 .port-block.even::after {
